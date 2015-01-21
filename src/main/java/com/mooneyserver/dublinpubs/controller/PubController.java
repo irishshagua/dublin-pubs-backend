@@ -24,8 +24,7 @@ public class PubController {
     }
 
     public Optional<Pub> getPubById(Long id) {
-        Pub pub = entityManager.find(Pub.class, id);
-        return pub == null ? Optional.empty() : Optional.of(pub);
+    	return Optional.ofNullable(entityManager.find(Pub.class, id));        
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
